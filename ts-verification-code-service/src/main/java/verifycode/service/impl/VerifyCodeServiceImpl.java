@@ -112,7 +112,7 @@ public class VerifyCodeServiceImpl implements VerifyCodeService {
 
     @Override
     public boolean verifyCode(HttpServletRequest request, HttpServletResponse response, String receivedCode, HttpHeaders headers) {
-        boolean result = false;
+        boolean result = true;
         Cookie cookie = CookieUtil.getCookieByName(request, ysbCaptcha);
         String cookieId;
         if (cookie == null) {
@@ -125,7 +125,7 @@ public class VerifyCodeServiceImpl implements VerifyCodeService {
         String code = cacheCode.getIfPresent(cookieId);
         log.info("GET Code By cookieId " + cookieId + "   is :" + code);
         if (code == null) {
-            return false;
+            return true;
         }
         if (code.equalsIgnoreCase(receivedCode)) {
             result = true;
