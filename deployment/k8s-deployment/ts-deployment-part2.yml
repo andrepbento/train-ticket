@@ -11,7 +11,6 @@
 #   selector:
 #     app: rest-service-collect
 # ---
-
 # apiVersion: apps/v1
 # kind: Deployment
 # metadata:
@@ -45,6 +44,9 @@ metadata:
   name: ts-admin-basic-info-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-admin-basic-info-service
   template:
     metadata:
       labels:
@@ -52,8 +54,8 @@ spec:
     spec:
       containers:
       - name: ts-admin-basic-info-service
-        image: ts/ts-admin-basic-info-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-admin-basic-info-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 18767
         resources:
@@ -70,14 +72,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5   
 ---
-
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-admin-order-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-admin-order-service
   template:
     metadata:
       labels:
@@ -85,8 +88,8 @@ spec:
     spec:
       containers:
       - name: ts-admin-order-service
-        image: ts/ts-admin-order-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-admin-order-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 16112
         resources:
@@ -103,13 +106,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-admin-route-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-admin-route-service
   template:
     metadata:
       labels:
@@ -117,8 +122,8 @@ spec:
     spec:
       containers:
       - name: ts-admin-route-service
-        image: ts/ts-admin-route-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-admin-route-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 16113
         resources:
@@ -135,13 +140,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-admin-travel-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-admin-travel-service
   template:
     metadata:
       labels:
@@ -149,8 +156,8 @@ spec:
     spec:
       containers:
       - name: ts-admin-travel-service
-        image: ts/ts-admin-travel-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-admin-travel-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 16114
         resources:
@@ -167,13 +174,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-admin-user-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-admin-user-service
   template:
     metadata:
       labels:
@@ -181,8 +190,8 @@ spec:
     spec:
       containers:
       - name: ts-admin-user-service
-        image: ts/ts-admin-user-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-admin-user-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 16115
         resources:
@@ -199,13 +208,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-assurance-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-assurance-service
   template:
     metadata:
       labels:
@@ -213,8 +224,8 @@ spec:
     spec:
       containers:
       - name: ts-assurance-service
-        image: ts/ts-assurance-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-assurance-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 18888
         resources:
@@ -231,13 +242,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-basic-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-basic-service
   template:
     metadata:
       labels:
@@ -245,8 +258,8 @@ spec:
     spec:
       containers:
       - name: ts-basic-service
-        image: ts/ts-basic-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-basic-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 15680
         resources:
@@ -263,13 +276,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-cancel-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-cancel-service
   template:
     metadata:
       labels:
@@ -277,8 +292,8 @@ spec:
     spec:
       containers:
       - name: ts-cancel-service
-        image: ts/ts-cancel-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-cancel-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 18885
         resources:
@@ -295,13 +310,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-config-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-config-service
   template:
     metadata:
       labels:
@@ -309,8 +326,8 @@ spec:
     spec:
       containers:
       - name: ts-config-service
-        image: ts/ts-config-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-config-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 15679
         resources:
@@ -327,13 +344,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-consign-price-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-consign-price-service
   template:
     metadata:
       labels:
@@ -341,8 +360,8 @@ spec:
     spec:
       containers:
       - name: ts-consign-price-service
-        image: ts/ts-consign-price-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-consign-price-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 16110
         resources:
@@ -359,13 +378,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-consign-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-consign-service
   template:
     metadata:
       labels:
@@ -373,8 +394,8 @@ spec:
     spec:
       containers:
       - name: ts-consign-service
-        image: ts/ts-consign-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-consign-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 16111
         resources:
@@ -391,13 +412,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-contacts-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-contacts-service
   template:
     metadata:
       labels:
@@ -405,8 +428,8 @@ spec:
     spec:
       containers:
       - name: ts-contacts-service
-        image: ts/ts-contacts-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-contacts-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 12347
         resources:
@@ -423,13 +446,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5 
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-execute-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-execute-service
   template:
     metadata:
       labels:
@@ -437,8 +462,8 @@ spec:
     spec:
       containers:
       - name: ts-execute-service
-        image: ts/ts-execute-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-execute-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 12386
         resources:
@@ -455,13 +480,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-food-map-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-food-map-service
   template:
     metadata:
       labels:
@@ -469,8 +496,8 @@ spec:
     spec:
       containers:
       - name: ts-food-map-service
-        image: ts/ts-food-map-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-food-map-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 18855
         resources:
@@ -487,13 +514,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-food-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-food-service
   template:
     metadata:
       labels:
@@ -501,8 +530,8 @@ spec:
     spec:
       containers:
       - name: ts-food-service
-        image: ts/ts-food-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-food-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 18856
         resources:
@@ -519,13 +548,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-inside-payment-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-inside-payment-service
   template:
     metadata:
       labels:
@@ -533,8 +564,8 @@ spec:
     spec:
       containers:
       - name: ts-inside-payment-service
-        image: ts/ts-inside-payment-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-inside-payment-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 18673
         resources:
@@ -551,13 +582,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-auth-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-auth-service
   template:
     metadata:
       labels:
@@ -565,8 +598,8 @@ spec:
     spec:
       containers:
       - name: ts-auth-service
-        image: ts/ts-auth-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-auth-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 12340
         resources:
@@ -583,13 +616,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5 
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-news-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-news-service
   template:
     metadata:
       labels:
@@ -597,8 +632,8 @@ spec:
     spec:
       containers:
       - name: ts-news-service
-        image: ts/ts-news-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-news-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 12862
         resources:
@@ -615,13 +650,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-notification-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-notification-service
   template:
     metadata:
       labels:
@@ -629,8 +666,8 @@ spec:
     spec:
       containers:
       - name: ts-notification-service
-        image: ts/ts-notification-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-notification-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 17853
         resources:
@@ -647,13 +684,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-order-other-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-order-other-service
   template:
     metadata:
       labels:
@@ -661,8 +700,8 @@ spec:
     spec:
       containers:
       - name: ts-order-other-service
-        image: ts/ts-order-other-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-order-other-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 12032
         resources:
@@ -679,13 +718,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-order-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-order-service
   template:
     metadata:
       labels:
@@ -693,8 +734,8 @@ spec:
     spec:
       containers:
       - name: ts-order-service
-        image: ts/ts-order-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-order-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 12031
         resources:
@@ -711,13 +752,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-payment-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-payment-service
   template:
     metadata:
       labels:
@@ -725,8 +768,8 @@ spec:
     spec:
       containers:
       - name: ts-payment-service
-        image: ts/ts-payment-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-payment-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 19001
         resources:
@@ -743,13 +786,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5 
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-preserve-other-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-preserve-other-service
   template:
     metadata:
       labels:
@@ -757,8 +802,8 @@ spec:
     spec:
       containers:
       - name: ts-preserve-other-service
-        image: ts/ts-preserve-other-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-preserve-other-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 14569
         resources:
@@ -775,13 +820,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-preserve-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-preserve-service
   template:
     metadata:
       labels:
@@ -789,8 +836,8 @@ spec:
     spec:
       containers:
       - name: ts-preserve-service
-        image: ts/ts-preserve-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-preserve-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 14568
         resources:
@@ -807,13 +854,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-price-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-price-service
   template:
     metadata:
       labels:
@@ -821,8 +870,8 @@ spec:
     spec:
       containers:
       - name: ts-price-service
-        image: ts/ts-price-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-price-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 16579
         resources:
@@ -839,13 +888,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-rebook-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-rebook-service
   template:
     metadata:
       labels:
@@ -853,8 +904,8 @@ spec:
     spec:
       containers:
       - name: ts-rebook-service
-        image: ts/ts-rebook-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-rebook-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 18886
         resources:
@@ -871,13 +922,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5 
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-route-plan-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-route-plan-service
   template:
     metadata:
       labels:
@@ -885,8 +938,8 @@ spec:
     spec:
       containers:
       - name: ts-route-plan-service
-        image: ts/ts-route-plan-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-route-plan-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 14578
         resources:
@@ -903,13 +956,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-route-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-route-service
   template:
     metadata:
       labels:
@@ -917,8 +972,8 @@ spec:
     spec:
       containers:
       - name: ts-route-service
-        image: ts/ts-route-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-route-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 11178
         resources:
@@ -935,13 +990,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5 
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-seat-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-seat-service
   template:
     metadata:
       labels:
@@ -949,8 +1006,8 @@ spec:
     spec:
       containers:
       - name: ts-seat-service
-        image: ts/ts-seat-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-seat-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 18898
         resources:
@@ -967,13 +1024,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5 
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-security-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-security-service
   template:
     metadata:
       labels:
@@ -981,8 +1040,8 @@ spec:
     spec:
       containers:
       - name: ts-security-service
-        image: ts/ts-security-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-security-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 11188
         resources:
@@ -999,13 +1058,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-user-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-user-service
   template:
     metadata:
       labels:
@@ -1013,8 +1074,8 @@ spec:
     spec:
       containers:
       - name: ts-user-service
-        image: ts/ts-user-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-user-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 12342
         resources:
@@ -1031,13 +1092,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5 
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-station-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-station-service
   template:
     metadata:
       labels:
@@ -1045,8 +1108,8 @@ spec:
     spec:
       containers:
       - name: ts-station-service
-        image: ts/ts-station-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-station-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 12345
         resources:
@@ -1063,13 +1126,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-ticket-office-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-ticket-office-service
   template:
     metadata:
       labels:
@@ -1077,8 +1142,8 @@ spec:
     spec:
       containers:
       - name: ts-ticket-office-service
-        image: ts/ts-ticket-office-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-ticket-office-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 16108
         resources:
@@ -1095,13 +1160,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5 
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-ticketinfo-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-ticketinfo-service
   template:
     metadata:
       labels:
@@ -1109,8 +1176,8 @@ spec:
     spec:
       containers:
       - name: ts-ticketinfo-service
-        image: ts/ts-ticketinfo-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-ticketinfo-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 15681
         resources:
@@ -1127,13 +1194,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5 
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-train-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-train-service
   template:
     metadata:
       labels:
@@ -1141,8 +1210,8 @@ spec:
     spec:
       containers:
       - name: ts-train-service
-        image: ts/ts-train-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-train-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 14567
         resources:
@@ -1159,13 +1228,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5 
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-travel2-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-travel2-service
   template:
     metadata:
       labels:
@@ -1173,8 +1244,8 @@ spec:
     spec:
       containers:
       - name: ts-travel2-service
-        image: ts/ts-travel2-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-travel2-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 16346
         resources:
@@ -1191,13 +1262,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-travel-plan-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-travel-plan-service
   template:
     metadata:
       labels:
@@ -1205,8 +1278,8 @@ spec:
     spec:
       containers:
       - name: ts-travel-plan-service
-        image: ts/ts-travel-plan-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-travel-plan-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 14322
         resources:
@@ -1223,13 +1296,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-travel-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-travel-service
   template:
     metadata:
       labels:
@@ -1237,8 +1312,8 @@ spec:
     spec:
       containers:
       - name: ts-travel-service
-        image: ts/ts-travel-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-travel-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 12346
         resources:
@@ -1255,13 +1330,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5 
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-verification-code-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-verification-code-service
   template:
     metadata:
       labels:
@@ -1270,7 +1347,7 @@ spec:
       containers:
       - name: ts-verification-code-service
         image: asequeirapt/ts-verification-code-service:v2
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 15678
         resources:
@@ -1287,13 +1364,15 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-voucher-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-voucher-service
   template:
     metadata:
       labels:
@@ -1301,8 +1380,8 @@ spec:
     spec:
       containers:
       - name: ts-voucher-service
-        image: ts/ts-voucher-service
-        imagePullPolicy: Always
+        image: codewisdom/ts-voucher-service
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 16101
         resources:
@@ -1319,7 +1398,6 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5 
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1330,9 +1408,7 @@ spec:
       port: 18767
   selector:
    app: ts-admin-basic-info-service
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1342,10 +1418,8 @@ spec:
     - name: http
       port: 16112
   selector:
-   app: ts-admin-order-service
-
+    app: ts-admin-order-service
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1356,9 +1430,7 @@ spec:
       port: 16113
   selector:
    app: ts-admin-route-service
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1369,9 +1441,7 @@ spec:
       port: 16114
   selector:
    app: ts-admin-travel-service
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1382,9 +1452,7 @@ spec:
       port: 16115
   selector:
    app: ts-admin-user-service
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1395,9 +1463,7 @@ spec:
       port: 18888
   selector:
    app: ts-assurance-service
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1408,9 +1474,7 @@ spec:
       port: 15680
   selector:
    app: ts-basic-service
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1421,9 +1485,7 @@ spec:
       port: 18885
   selector:
    app: ts-cancel-service
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1434,9 +1496,7 @@ spec:
       port: 15679
   selector:
    app: ts-config-service
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1447,9 +1507,7 @@ spec:
       port: 16110
   selector:
    app: ts-consign-price-service
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1460,9 +1518,7 @@ spec:
       port: 16111
   selector:
    app: ts-consign-service
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1473,9 +1529,7 @@ spec:
       port: 12347
   selector:
    app: ts-contacts-service
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1486,9 +1540,7 @@ spec:
       port: 12386
   selector:
    app: ts-execute-service
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1499,9 +1551,7 @@ spec:
       port: 18855
   selector:
    app: ts-food-map-service
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1512,9 +1562,7 @@ spec:
       port: 18856
   selector:
    app: ts-food-service
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1525,9 +1573,7 @@ spec:
       port: 18673
   selector:
    app: ts-inside-payment-service
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1538,9 +1584,7 @@ spec:
       port: 12342
   selector:
    app: ts-user-service
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1551,9 +1595,7 @@ spec:
       port: 17853
   selector:
    app: ts-notification-service
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1564,9 +1606,7 @@ spec:
       port: 12862
   selector:
    app: ts-news-service
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1577,9 +1617,7 @@ spec:
       port: 12032
   selector:
    app: ts-order-other-service
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1590,9 +1628,7 @@ spec:
       port: 12031
   selector:
    app: ts-order-service
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1603,9 +1639,7 @@ spec:
       port: 19001
   selector:
    app: ts-payment-service
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1616,9 +1650,7 @@ spec:
       port: 14569
   selector:
    app: ts-preserve-other-service
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1629,9 +1661,7 @@ spec:
       port: 14568
   selector:
    app: ts-preserve-service
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1642,9 +1672,7 @@ spec:
       port: 16579
   selector:
    app: ts-price-service
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1655,9 +1683,7 @@ spec:
       port: 18886
   selector:
    app: ts-rebook-service
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1668,9 +1694,7 @@ spec:
       port: 14578
   selector:
    app: ts-route-plan-service
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1681,9 +1705,7 @@ spec:
       port: 11178
   selector:
    app: ts-route-service
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1694,9 +1716,7 @@ spec:
       port: 18898
   selector:
    app: ts-seat-service
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1707,23 +1727,19 @@ spec:
       port: 11188
   selector:
    app: ts-security-service
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
   name: ts-auth-service
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
     - name: http
       port: 12340
   selector:
    app: ts-auth-service
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1734,9 +1750,7 @@ spec:
       port: 12345
   selector:
    app: ts-station-service
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1747,9 +1761,7 @@ spec:
       port: 16108
   selector:
    app: ts-ticket-office-service
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1760,9 +1772,7 @@ spec:
       port: 15681
   selector:
    app: ts-ticketinfo-service
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1773,9 +1783,7 @@ spec:
       port: 14567
   selector:
    app: ts-train-service
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1786,9 +1794,7 @@ spec:
       port: 16346
   selector:
    app: ts-travel2-service
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1799,9 +1805,7 @@ spec:
       port: 14322
   selector:
    app: ts-travel-plan-service
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1812,10 +1816,7 @@ spec:
       port: 12346
   selector:
    app: ts-travel-service
-
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -1826,10 +1827,7 @@ spec:
       port: 15678
   selector:
    app: ts-verification-code-service
-
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
