@@ -1269,7 +1269,7 @@ spec:
     spec:
       containers:
       - name: ts-verification-code-service
-        image: ts/ts-verification-code-service
+        image: asequeirapt/ts-verification-code-service:v2
         imagePullPolicy: Always
         ports:
         - containerPort: 15678
