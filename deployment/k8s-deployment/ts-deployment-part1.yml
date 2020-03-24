@@ -1,9 +1,15 @@
-apiVersion: extensions/v1beta1
+
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-user-mongo
+  labels:
+    app: ts-user-mongo
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-user-mongo
   template:
     metadata:
       labels:
@@ -21,12 +27,15 @@ spec:
             memory: 100Mi
 ---
 
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-auth-mongo
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-auth-mongo
   template:
     metadata:
       labels:
@@ -44,12 +53,15 @@ spec:
             memory: 100Mi
 ---
 
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-route-mongo
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-route-mongo
   template:
     metadata:
       labels:
@@ -68,12 +80,15 @@ spec:
 
 ---
 
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-contacts-mongo
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-contacts-mongo
   template:
     metadata:
       labels:
@@ -92,12 +107,15 @@ spec:
 
 ---
 
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-order-mongo
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-order-mongo
   template:
     metadata:
       labels:
@@ -116,12 +134,15 @@ spec:
 
 ---
 
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-order-other-mongo
 spec:
   replicas: 1
+    selector:
+    matchLabels:
+      app: ts-order-other-mongo
   template:
     metadata:
       labels:
@@ -140,12 +161,15 @@ spec:
 
 ---
 
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-config-mongo
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-config-mongo
   template:
     metadata:
       labels:
@@ -164,12 +188,15 @@ spec:
 
 ---
 
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-station-mongo
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-station-mongo
   template:
     metadata:
       labels:
@@ -188,12 +215,15 @@ spec:
 
 ---
 
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-train-mongo
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-train-mongo
   template:
     metadata:
       labels:
@@ -212,12 +242,15 @@ spec:
 
 ---
 
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-travel-mongo
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-travel-mongo
   template:
     metadata:
       labels:
@@ -236,12 +269,15 @@ spec:
 
 ---
 
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-travel2-mongo
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-travel2-mongo
   template:
     metadata:
       labels:
@@ -260,12 +296,15 @@ spec:
 
 ---
 
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-price-mongo
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-price-mongo
   template:
     metadata:
       labels:
@@ -284,12 +323,15 @@ spec:
 
 ---
 
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-security-mongo
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-security-mongo
   template:
     metadata:
       labels:
@@ -308,12 +350,15 @@ spec:
 
 ---
 
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-inside-payment-mongo
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-inside-payment-mongo
   template:
     metadata:
       labels:
@@ -332,12 +377,15 @@ spec:
 
 ---
 
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-payment-mongo
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-payment-mongo
   template:
     metadata:
       labels:
@@ -356,12 +404,15 @@ spec:
 
 ---
 
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-assurance-mongo
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-assurance-mongo
   template:
     metadata:
       labels:
@@ -380,12 +431,15 @@ spec:
 
 ---
 
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-ticket-office-mongo
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-ticket-office-mongo
   template:
     metadata:
       labels:
@@ -405,12 +459,15 @@ spec:
 
 ---
 
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-voucher-mysql
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-voucher-mysql
   template:
     metadata:
       labels:
@@ -433,12 +490,15 @@ spec:
 
 ---
 
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-food-map-mongo
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-food-map-mongo
   template:
     metadata:
       labels:
@@ -457,12 +517,15 @@ spec:
 
 ---
 
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-consign-mongo
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-consign-mongo
   template:
     metadata:
       labels:
@@ -481,12 +544,15 @@ spec:
 
 ---
 
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-consign-price-mongo
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-consign-price-mongo
   template:
     metadata:
       labels:
@@ -505,12 +571,15 @@ spec:
 
 ---
 
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ts-food-mongo
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ts-food-mongo
   template:
     metadata:
       labels:
@@ -528,6 +597,7 @@ spec:
             memory: 100Mi
 
 ---
+
 apiVersion: v1
 kind: Service
 metadata:
@@ -539,6 +609,7 @@ spec:
    app: ts-user-mongo 
 
 ---
+
 apiVersion: v1
 kind: Service
 metadata:
@@ -548,6 +619,7 @@ spec:
     - port: 27017
   selector:
    app: ts-auth-mongo
+
 ---
 
 apiVersion: v1
@@ -923,6 +995,104 @@ spec:
   selector:
     app.kubernetes.io/name: jaeger
     app.kubernetes.io/component: all-in-one
+
+---
+# ElasticSearch
+
+apiVersion: v1
+kind: List
+items:
+- apiVersion: apps/v1
+  kind: StatefulSet
+  metadata:
+    name: elasticsearch
+    labels:
+      app: elasticsearch
+      app.kubernetes.io/name: elasticsearch
+      app.kubernetes.io/component: storage-backend
+      app.kubernetes.io/part-of: jaeger
+  spec:
+    serviceName: elasticsearch
+    replicas: 1
+    template:
+      metadata:
+        labels:
+          app: elasticsearch
+          app.kubernetes.io/name: elasticsearch
+          app.kubernetes.io/component: storage-backend
+          app.kubernetes.io/part-of: jaeger
+      spec:
+        containers:
+          - name: elasticsearch
+            image: docker.elastic.co/elasticsearch/elasticsearch:5.6.0
+            imagePullPolicy: Always
+            command:
+              - bin/elasticsearch
+            args:
+              - "-Ehttp.host=0.0.0.0"
+              - "-Etransport.host=127.0.0.1"
+            volumeMounts:
+              - name: data
+                mountPath: /data
+            readinessProbe:
+              exec:
+                command:
+                - curl
+                - --fail
+                - --silent
+                - --output
+                - /dev/null
+                - --user
+                - elastic:changeme
+                - localhost:9200
+              initialDelaySeconds: 5
+              periodSeconds: 5
+              timeoutSeconds: 4
+        volumes:
+          - name: data
+            emptyDir: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    name: elasticsearch
+    labels:
+      app: elasticsearch
+      app.kubernetes.io/name: elasticsearch
+      app.kubernetes.io/component: storage-backend
+      app.kubernetes.io/part-of: jaeger
+  spec:
+    type: NodePort
+    selector:
+      app.kubernetes.io/name: elasticsearch
+      app.kubernetes.io/component: storage-backend
+      app.kubernetes.io/part-of: jaeger
+    ports:
+    - port: 9200
+      name: elasticsearch
+    - port: 9300
+      name: transport
+
+---
+# ConfigMap for Jaeger: ElasticSearch storage type
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: jaeger-configuration
+  labels:
+    app: jaeger
+    jaeger-infra: configuration
+data:
+  span-storage-type: elasticsearch
+  collector: |
+    es:
+      server-urls: http://elasticsearch:9200
+    collector:
+      zipkin:
+        http-port: 9411
+  query: |
+    es:
+      server-urls: http://elasticsearch:9200
 
 ---
 
