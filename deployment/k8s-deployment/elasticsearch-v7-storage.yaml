@@ -1,0 +1,35 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: elastic-search-sc
+provisioner: kubernetes.io/no-provisioner
+parameters:
+  repl: "1"
+  snap_interval:   "120"
+  io_priority:  "high"
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: es-local-storage-pv
+spec:
+  capacity:
+    storage: 50Gi
+  accessModes:
+  - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: elastic-search-sc
+  hostPath:
+    path: "/data"
+#---
+#apiVersion: v1
+#kind: PersistentVolumeClaim
+#metadata:
+#  name: es-local-storage-pvc
+#spec:
+#  accessModes:
+#    - ReadWriteMany
+#  resources:
+#    requests:
+#      storage: 50Gi
+#  storageClassName: elastic-search-sc
