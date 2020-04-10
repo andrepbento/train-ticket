@@ -4,7 +4,7 @@ metadata:
   name: trainticket-gateway
 spec:
   selector:
-    istio: ingressgateway # use istio default controller
+    istio: ingressgateway
   servers:
   - port:
       number: 80
@@ -367,14 +367,14 @@ spec:
         host: ts-admin-travel-service
         port:
           number: 16114
-  - match:
-    - uri:
-        prefix: /
-    route:
-    - destination:
-        host: kafka
-        port:
-          number: 16116
+  #- match:
+  #  - uri:
+  #      prefix: /
+  #  route:
+  #  - destination:
+  #      host: kafka
+  #      port:
+  #        number: 16116
   - match:
     - uri:
         prefix: /api/v1/adminuserservice/users
