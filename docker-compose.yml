@@ -186,7 +186,7 @@ services:
 
   ts-travel-service:
     build: ts-travel-service
-    image: ts/ts-travel-service
+    image: apbento/ts-travel-service
     restart: always
     ports:
       - 12346:12346

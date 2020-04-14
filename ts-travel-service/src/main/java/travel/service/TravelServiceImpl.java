@@ -2,6 +2,7 @@ package travel.service;
 
 import edu.fudan.common.util.JsonUtils;
 import edu.fudan.common.util.Response;
+import org.graalvm.compiler.core.common.alloc.Trace;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,6 +62,7 @@ public class TravelServiceImpl implements TravelService {
         if (route != null) {
             return new Response<>(1, success, route);
         } else {
+            TravelServiceImpl.LOGGER.info("Get route failed");
             return new Response<>(0, noContent, null);
         }
     }
@@ -76,6 +78,7 @@ public class TravelServiceImpl implements TravelService {
         if (trainType != null) {
             return new Response<>(1, success, trainType);
         } else {
+            TravelServiceImpl.LOGGER.info(" getTrainTypeByTripId failed");
             return new Response<>(0, noContent, null);
         }
     }
@@ -93,6 +96,7 @@ public class TravelServiceImpl implements TravelService {
         if (!tripList.isEmpty()) {
             return new Response<>(1, success, tripList);
         } else {
+            TravelServiceImpl.LOGGER.info("getTripByRoute failed");
             return new Response<>(0, noContent, null);
         }
     }
@@ -105,6 +109,7 @@ public class TravelServiceImpl implements TravelService {
         if (trip != null) {
             return new Response<>(1, "Search Trip Success by Trip Id " + tripId, trip);
         } else {
+            TravelServiceImpl.LOGGER.info("retrieve failed");
             return new Response<>(0, "No Content according to tripId" + tripId, null);
         }
     }
@@ -119,6 +124,7 @@ public class TravelServiceImpl implements TravelService {
             repository.save(trip);
             return new Response<>(1, "Update trip:" + ti.toString(), trip);
         } else {
+            TravelServiceImpl.LOGGER.info("update failed");
             return new Response<>(1, "Trip" + info.getTripId().toString() + "doesn 't exists", null);
         }
     }
@@ -136,6 +142,7 @@ public class TravelServiceImpl implements TravelService {
 
     @Override
     public Response query(TripInfo info, HttpHeaders headers) {
+        TravelServiceImpl.LOGGER.info("Query");
 
         //Gets the start and arrival stations of the train number to query. The originating and arriving stations received here are both station names, so two requests need to be sent to convert to station ids
         String startingPlaceName = info.getStartingPlace();
@@ -148,6 +155,9 @@ public class TravelServiceImpl implements TravelService {
 
         //Check all train info
         List<Trip> allTripList = repository.findAll();
+        if(allTripList == null) TravelServiceImpl.LOGGER.info("Size of allTripList is null");
+        else TravelServiceImpl.LOGGER.info("Size of allTripList: " + allTripList.size());
+
         for (Trip tempTrip : allTripList) {
             //Get the detailed route list of this train
             Route tempRoute = getRouteByRouteId(tempTrip.getRouteId(), headers);
@@ -158,6 +168,7 @@ public class TravelServiceImpl implements TravelService {
                     tempRoute.getStations().indexOf(startingPlaceId) < tempRoute.getStations().indexOf(endPlaceId)) {
                 TripResponse response = getTickets(tempTrip, tempRoute, startingPlaceId, endPlaceId, startingPlaceName, endPlaceName, info.getDepartureTime(), headers);
                 if (response == null) {
+                    TravelServiceImpl.LOGGER.info("Query, no trip found");
                     return new Response<>(0, "No Trip info content", null);
                 }
                 list.add(response);
@@ -280,6 +291,7 @@ public class TravelServiceImpl implements TravelService {
         if (tripList != null && !tripList.isEmpty()) {
             return new Response<>(1, success, tripList);
         }
+        TravelServiceImpl.LOGGER.info("queryAll failed");
         return new Response<>(0, noContent, null);
     }
 
