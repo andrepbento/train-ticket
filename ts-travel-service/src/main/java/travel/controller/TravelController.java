@@ -107,7 +107,15 @@ public class TravelController {
             return ok(errorList);
         }
         TravelController.LOGGER.info("[Travel Service] Query TripResponse");
-        return ok(travelService.query(info, headers));
+
+        ResponseEntity responseEntity = ok(travelService.query(info, headers));
+        if (responseEntity != null) {
+            TravelController.LOGGER.info("Query: Response entity: " + responseEntity);
+            return responseEntity;
+        } else {
+            TravelController.LOGGER.error("Query: Response entity error!");
+            return null;
+        }
     }
 
     /**
