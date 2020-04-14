@@ -2,7 +2,6 @@ package travel.service;
 
 import edu.fudan.common.util.JsonUtils;
 import edu.fudan.common.util.Response;
-import org.graalvm.compiler.core.common.alloc.Trace;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -159,6 +158,8 @@ public class TravelServiceImpl implements TravelService {
         else TravelServiceImpl.LOGGER.info("Size of allTripList: " + allTripList.size());
 
         for (Trip tempTrip : allTripList) {
+            TravelServiceImpl.LOGGER.info("Trip: " + tempTrip.getTripId().toString());
+
             //Get the detailed route list of this train
             Route tempRoute = getRouteByRouteId(tempTrip.getRouteId(), headers);
             //Check the route list for this train. Check that the required start and arrival stations are in the list of stops that are not on the route, and check that the location of the start station is before the stop
@@ -174,6 +175,7 @@ public class TravelServiceImpl implements TravelService {
                 list.add(response);
             }
         }
+        TravelServiceImpl.LOGGER.info("Query resource finished");
         return new Response<>(1, success, list);
     }
 
